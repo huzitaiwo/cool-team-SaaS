@@ -68,3 +68,25 @@ export function initLiveClear(form) {
     input.addEventListener("input", () => clearFieldError(input));
   });
 }
+
+export const passwordChecks = (value) => ({
+  length: value.length >= 8,
+  letter: /[A-Za-z]/.test(value),
+  number: /\d/.test(value),
+});
+
+export const passwordIsValid = (value) =>
+  Object.values(passwordChecks(value)).every(Boolean);
+
+export function initPasswordChecklist(input, list) {
+  const update = () => {
+    const result = passwordChecks(input.value);
+    list.querySelectorAll("[data-rule]").forEach((item) => {
+      const met = result[item.dataset.rule];
+      item.classList.toggle("is-met", met);
+      item.querySelector(".sr-only").textContent = met ? "Met: " : "Not met: ";
+    });
+  };
+  input.addEventListener("input", update);
+  update();
+}

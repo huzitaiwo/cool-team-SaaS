@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Create your account — CoolTeam</title>
+    <meta
+      name="description"
+      content="Create your CoolTeam account and set up a calmer workspace for your creative team."
+    />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+
+    <link
+      rel="shortcut icon"
+      href="assets/icons/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/forms.css" />
+    <link rel="stylesheet" href="css/auth.css" />
+
+    <script src="js/components.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script type="module" src="js/auth-signup.js"></script>
+  </head>
+  <body class="auth-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="auth">
+      <div class="auth__form-side">
+        <div class="auth__top">
+          <a class="logo" href="index.html" aria-label="CoolTeam home">
+            <span class="logo__mark" aria-hidden="true">C</span
+            ><span>coolteam</span>
+          </a>
+        </div>
+
+        <main class="auth__main" id="main">
+          <div class="auth__card">
+            <a class="back-link" href="index.html" data-reveal>
+              <svg class="icon" aria-hidden="true" focusable="false">
+                <use href="#i-arrow-left"></use>
+              </svg>
+              Back to home
+            </a>
+
+            <div data-reveal style="--i: 1">
+              <h1 class="auth__title">Create your account</h1>
+              <p class="auth__sub">
+                Start free and set up your workspace in a few minutes.
+              </p>
+            </div>
+
+            <form
+              class="form"
+              id="signup-form"
+              novalidate
+              data-reveal
+              style="--i: 2"
+            >
+              <div class="form-alert" role="alert" hidden>
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use href="#i-alert-circle"></use>
+                </svg>
+                <span></span>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="name">Full name</label>
+                <div class="field__control">
+                  <svg
+                    class="icon field__icon"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <use href="#i-user"></use>
+                  </svg>
+                  <input
+                    class="field__input"
+                    id="name"
+                    name="name"
+                    type="text"
+                    autocomplete="name"
+                    placeholder="Your name"
+                    required
+                    aria-describedby="name-error"
+                  />
+                </div>
+                <p class="field__error" id="name-error" hidden>
+                  <svg class="icon" aria-hidden="true" focusable="false">
+                    <use href="#i-alert-circle"></use>
+                  </svg>
+                  <span></span>
+                </p>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="email">Work email</label>
+                <div class="field__control">
+                  <svg
+                    class="icon field__icon"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <use href="#i-mail"></use>
+                  </svg>
+                  <input
+                    class="field__input"
+                    id="email"
+                    name="email"
+                    type="email"
+                    inputmode="email"
+                    autocomplete="email"
+                    placeholder="you@studio.com"
+                    required
+                    aria-describedby="email-error"
+                  />
+                </div>
+                <p class="field__error" id="email-error" hidden>
+                  <svg class="icon" aria-hidden="true" focusable="false">
+                    <use href="#i-alert-circle"></use>
+                  </svg>
+                  <span></span>
+                </p>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="password">Password</label>
+                <div class="field__control">
+                  <svg
+                    class="icon field__icon"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <use href="#i-lock"></use>
+                  </svg>
+                  <input
+                    class="field__input field__input--has-toggle"
+                    id="password"
+                    name="password"
+                    type="password"
+                    autocomplete="new-password"
+                    placeholder="Create a password"
+                    required
+                    aria-describedby="password-rules password-error"
+                  />
+                  <button
+                    class="field__toggle"
+                    type="button"
+                    data-toggle-password
+                    aria-controls="password"
+                    aria-pressed="false"
+                    aria-label="Show password"
+                  >
+                    <svg
+                      class="icon icon--show"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <use href="#i-eye"></use>
+                    </svg>
+                    <svg
+                      class="icon icon--hide"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <use href="#i-eye-off"></use>
+                    </svg>
+                  </button>
+                </div>
+                <ul
+                  class="checklist"
+                  id="password-rules"
+                  aria-label="Password requirements"
+                >
+                  <li data-rule="length">
+                    <span class="checklist__dot"
+                      ><svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="#i-check"></use></svg></span
+                    ><span class="sr-only">Not met: </span>At least 8 characters
+                  </li>
+                  <li data-rule="letter">
+                    <span class="checklist__dot"
+                      ><svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="#i-check"></use></svg></span
+                    ><span class="sr-only">Not met: </span>Includes a letter
+                  </li>
+                  <li data-rule="number">
+                    <span class="checklist__dot"
+                      ><svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="#i-check"></use></svg></span
+                    ><span class="sr-only">Not met: </span>Includes a number
+                  </li>
+                </ul>
+                <p class="field__error" id="password-error" hidden>
+                  <svg class="icon" aria-hidden="true" focusable="false">
+                    <use href="#i-alert-circle"></use>
+                  </svg>
+                  <span></span>
+                </p>
+              </div>
+
+              <button
+                class="btn btn--primary btn--block"
+                type="submit"
+                id="signup-submit"
+                style="min-height: 3rem"
+              >
+                <span class="btn__label">Create account</span>
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use href="#i-arrow-right"></use>
+                </svg>
+              </button>
+
+              <p class="form-note">
+                By creating an account you agree to our
+                <a href="terms.html">Terms</a> and
+                <a href="privacy.html">Privacy Policy</a>.
+              </p>
+            </form>
+
+            <p class="auth__switch" data-reveal style="--i: 3">
+              Already have an account? <a href="login.html">Log in</a>
+            </p>
+          </div>
+        </main>
+
+        <footer class="auth__footer">
+          © <span data-year>2026</span> CoolTeam ·
+          <a href="privacy.html">Privacy</a> ·
+          <a href="terms.html">Terms</a>
+        </footer>
+      </div>
+
+      <aside class="auth__panel has-grid" aria-label="About CoolTeam">
+        <span class="logo" aria-hidden="true"
+          ><span class="logo__mark">C</span><span>coolteam</span></span
+        >
+
+        <div class="auth__panel-copy" data-reveal style="--i: 2">
+          <h2 class="auth__panel-title">A calmer place to make great work.</h2>
+          <p class="auth__panel-text">
+            Plan projects, review creative, and deliver together—without the
+            noise.
+          </p>
+        </div>
+
+        <div class="glass-note" data-reveal style="--i: 3">
+          <span class="glass-note__icon" aria-hidden="true">
+            <svg class="icon" focusable="false">
+              <use href="#i-sparkles"></use>
+            </svg>
+          </span>
+          <p>
+            <strong>Start free.</strong
+            ><span>Set up your workspace in minutes.</span>
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <script>
+      document.querySelectorAll("[data-year]").forEach(function (el) {
+        el.textContent = new Date().getFullYear();
+      });
+    </script>
+  </body>
+</html>

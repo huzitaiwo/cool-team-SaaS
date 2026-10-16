@@ -800,3 +800,69 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Plain input (no leading icon) */
+.field__input--plain {
+  padding-left: 1rem;
+}
+
+/* Password requirements checklist */
+.checklist {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 0.15rem;
+  font-size: 0.78rem;
+  color: var(--color-muted);
+}
+.checklist li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  transition: color var(--dur) ease;
+}
+.checklist__dot {
+  display: grid;
+  place-items: center;
+  width: 1.05rem;
+  height: 1.05rem;
+  border: 1.5px solid #cbd1e4;
+  border-radius: 50%;
+  color: #fff;
+  transition:
+    background-color var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out),
+    transform var(--dur) var(--ease-out);
+}
+.checklist__dot .icon {
+  width: 0.65rem;
+  height: 0.65rem;
+  stroke-width: 3;
+  opacity: 0;
+  transition: opacity var(--dur) ease;
+}
+.checklist li.is-met {
+  color: var(--color-teal-600);
+}
+.checklist li.is-met .checklist__dot {
+  background: var(--color-teal-500);
+  border-color: var(--color-teal-500);
+  transform: scale(1.08);
+}
+.checklist li.is-met .checklist__dot .icon {
+  opacity: 1;
+}
+
+.form-note {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--color-muted);
+  text-align: center;
+}
+.form-note a {
+  color: var(--color-brand-600);
+  font-weight: 500;
+}
+.form-note a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
