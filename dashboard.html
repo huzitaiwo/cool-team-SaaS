@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Overview — CoolTeam</title>
+    <meta name="robots" content="noindex" />
+
+    <link
+      rel="shortcut icon"
+      href="assets/icons/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/app-shell.css" />
+    <link rel="stylesheet" href="css/app-components.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+
+    <script src="js/components.js" defer></script>
+    <script type="module" src="js/dashboard.js"></script>
+  </head>
+  <body class="app-page" data-page="overview">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="app" id="app">
+      <div data-app="sidebar"></div>
+
+      <div class="app__main">
+        <div data-app="topbar" data-eyebrow="" data-title="Good morning."></div>
+
+        <main class="app__content" id="main">
+          <p
+            class="sr-only"
+            id="dash-status"
+            role="status"
+            aria-live="polite"
+          ></p>
+
+          <div class="dash-intro">
+            <p class="dash-intro__text">
+              Here’s the work with the most gravity today—what needs movement,
+              review, or a quick decision.
+            </p>
+            <div
+              class="segmented"
+              role="radiogroup"
+              aria-label="Preview dashboard state"
+            >
+              <span class="segmented__label" aria-hidden="true">State</span>
+              <label
+                ><input
+                  type="radio"
+                  name="state"
+                  value="default"
+                  checked
+                /><span>Default</span></label
+              >
+              <label
+                ><input type="radio" name="state" value="loading" /><span
+                  >Loading</span
+                ></label
+              >
+              <label
+                ><input type="radio" name="state" value="empty" /><span
+                  >Empty</span
+                ></label
+              >
+              <label
+                ><input type="radio" name="state" value="error" /><span
+                  >Error</span
+                ></label
+              >
+            </div>
+          </div>
+
+          <section
+            class="stats"
+            id="stats"
+            aria-label="Workspace summary"
+          ></section>
+
+          <div class="dash-grid dash-grid--main">
+            <section class="panel" aria-labelledby="projects-title">
+              <div class="panel__head">
+                <div>
+                  <h2 class="panel__title" id="projects-title">
+                    Active projects
+                  </h2>
+                  <p class="panel__sub">
+                    Progress, people, and the next milestone.
+                  </p>
+                </div>
+                <a class="link-arrow" href="projects.html">View all</a>
+              </div>
+              <div id="projects-body"></div>
+            </section>
+
+            <section class="panel" aria-labelledby="tasks-title">
+              <div class="panel__head">
+                <div>
+                  <h2 class="panel__title" id="tasks-title">My tasks</h2>
+                  <p class="panel__sub">A short list, kept useful.</p>
+                </div>
+                <a class="link-arrow" href="tasks.html">Open list</a>
+              </div>
+              <div id="tasks-body"></div>
+            </section>
+          </div>
+
+          <div class="dash-grid dash-grid--secondary">
+            <section class="panel" aria-labelledby="workload-title">
+              <div class="panel__head">
+                <div>
+                  <h2 class="panel__title" id="workload-title">
+                    Team workload
+                  </h2>
+                  <p class="panel__sub">Capacity across active project work.</p>
+                </div>
+              </div>
+              <div id="workload-body"></div>
+            </section>
+
+            <section class="panel" aria-labelledby="activity-title">
+              <div class="panel__head">
+                <div>
+                  <h2 class="panel__title" id="activity-title">
+                    Recent activity
+                  </h2>
+                  <p class="panel__sub">
+                    The collaboration trail, all in one place.
+                  </p>
+                </div>
+              </div>
+              <div id="activity-body"></div>
+            </section>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

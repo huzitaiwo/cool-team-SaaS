@@ -551,3 +551,23 @@
   mask-image: linear-gradient(to bottom, #000 30%, transparent 95%);
   -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent 95%);
 }
+
+/* Avatar sizes + extra colour (used across the app) */
+.avatar--blue {
+  background: #1d6fd6;
+}
+.avatar--sm {
+  width: 1.6rem;
+  height: 1.6rem;
+  font-size: 0.52rem;
+}
+.avatar--md {
+  width: 2rem;
+  height: 2rem;
+  font-size: 0.62rem;
+}
+.avatar--lg {
+  width: 2.4rem;
+  height: 2.4rem;
+  font-size: 0.72rem;
+}
