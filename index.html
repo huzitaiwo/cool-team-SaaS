@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CoolTeam - From brief to final delivery, together</title>
+    <meta
+      name="description"
+      content="CoolTeam gives distributed creative teams one calm, collaborative workspace to plan projects, manage work, review creative, and deliver great work."
+    />
+    <meta name="theme-color" content="#4b2aa5" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+
+    <link
+      rel="shortcut icon"
+      href="assets/icons/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/home.css" />
+
+    <script src="js/components.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div data-component="header" data-variant="transparent"></div>
+
+    <main id="main">
+      <!-- Hero -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero__inner">
+          <p class="hero__badge">
+            <svg class="icon" aria-hidden="true" focusable="false">
+              <use href="#i-sparkles"></use>
+            </svg>
+            The creative team’s calmer way to work
+          </p>
+          <p class="hero__aside">
+            A composed operating system for the work between a good idea and a
+            great outcome.
+          </p>
+
+          <h1 class="hero__title" id="hero-title">
+            <span>From brief to</span> <span>final delivery,</span>
+            <span>together.</span>
+          </h1>
+
+          <div class="hero__bottom">
+            <p class="hero__lead">
+              CoolTeam gives distributed creative teams one calm, collaborative
+              workspace to plan projects, manage work, review creative, and
+              deliver great work.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--light" href="signup.html"
+                >Start for free
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use href="#i-arrow-right"></use>
+                </svg>
+              </a>
+              <a class="btn btn--outline-light" href="#product">
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use href="#i-play"></use>
+                </svg>
+                Explore workspace
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decorative product preview -->
+        <div class="container">
+          <div class="preview" aria-hidden="true">
+            <div class="preview__bar">
+              <span class="preview__dot"></span
+              ><span class="preview__dot"></span
+              ><span class="preview__dot"></span>
+              <span class="preview__url"></span>
+            </div>
+            <div class="preview__body">
+              <div class="preview__side">
+                <span class="logo"
+                  ><span class="logo__mark">C</span><span>coolteam</span></span
+                >
+                <p class="preview__label">Workspace</p>
+                <ul class="preview__nav">
+                  <li class="is-active">Overview</li>
+                  <li>Projects</li>
+                  <li>Calendar</li>
+                  <li>Files</li>
+                  <li>Team</li>
+                </ul>
+              </div>
+              <div class="preview__main">
+                <div class="preview__head">
+                  <div>
+                    <p class="preview__date">Tuesday, May 19</p>
+                    <p class="preview__greeting">Good morning, Handsome.</p>
+                  </div>
+                  <span class="preview__new">+ New</span>
+                </div>
+                <div class="preview__stats">
+                  <div class="preview__stat preview__stat--a">
+                    <span>Active</span><strong data-count="6">6</strong>
+                  </div>
+                  <div class="preview__stat preview__stat--b">
+                    <span>Due today</span><strong data-count="4">4</strong>
+                  </div>
+                  <div class="preview__stat preview__stat--c">
+                    <span>Completed</span><strong data-count="18">18</strong>
+                  </div>
+                </div>
+                <div class="preview__project">
+                  <div>
+                    <small>Active projects</small>
+                    <h3>Northstar identity</h3>
+                  </div>
+                  <span class="avatar-stack">
+                    <span class="avatar">WA</span
+                    ><span class="avatar avatar--rose">OL</span
+                    ><span class="avatar avatar--amber">PR</span>
+                  </span>
+                  <div class="preview__progress">
+                    <span>72%</span>
+                    <span class="preview__progress-track"
+                      ><span class="preview__progress-fill"></span
+                    ></span>
+                  </div>
+                </div>
+                <div class="preview__tiles">
+                  <div class="preview__tile preview__tile--review">
+                    <small>In review</small>Prepare version three
+                  </div>
+                  <div class="preview__tile preview__tile--next">
+                    <small>Up next</small>Creative review
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Workflow -->
+      <section
+        class="section workflow"
+        id="how-it-works"
+        aria-labelledby="workflow-title"
+      >
+        <div class="container">
+          <div class="workflow__head" data-reveal>
+            <div>
+              <p class="eyebrow">Designed for the entire handoff</p>
+              <h2 class="section-title" id="workflow-title">
+                One shared rhythm, from first thought to final file.
+              </h2>
+            </div>
+            <p class="section-lead">
+              Bring planning, making, feedback, and approvals into the same
+              legible place. CoolTeam makes the work visible without making it
+              feel heavy.
+            </p>
+          </div>
+
+          <ol class="steps" data-reveal style="--i: 1">
+            <li class="step">
+              <span class="step__num">01</span>
+              <h3 class="step__title">Brief</h3>
+              <p class="step__text">
+                Start with context, goals, and a clear owner.
+              </p>
+            </li>
+            <li class="step">
+              <span class="step__num">02</span>
+              <h3 class="step__title">Plan</h3>
+              <p class="step__text">Turn the work into the next right steps.</p>
+            </li>
+            <li class="step">
+              <span class="step__num">03</span>
+              <h3 class="step__title">Make</h3>
+              <p class="step__text">Keep creative production moving in view.</p>
+            </li>
+            <li class="step">
+              <span class="step__num">04</span>
+              <h3 class="step__title">Review</h3>
+              <p class="step__text">Collect feedback where the work lives.</p>
+            </li>
+            <li class="step">
+              <span class="step__num">05</span>
+              <h3 class="step__title">Deliver</h3>
+              <p class="step__text">Close the loop with a confident handoff.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Product -->
+      <section
+        class="section product"
+        id="product"
+        aria-labelledby="product-title"
+      >
+        <div class="container">
+          <div class="product__head" data-reveal>
+            <div>
+              <p class="eyebrow">The complete picture</p>
+              <h2 class="section-title" id="product-title">
+                The structure behind your creative momentum.
+              </h2>
+            </div>
+            <a class="link-arrow" href="signup.html"
+              >Explore the workspace
+              <svg class="icon" aria-hidden="true" focusable="false">
+                <use href="#i-chevron-right"></use>
+              </svg>
+            </a>
+          </div>
+
+          <div class="bento">
+            <article class="bento__card bento__card--review" data-reveal>
+              <svg
+                class="icon bento__icon"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="#i-file-image"></use>
+              </svg>
+              <span class="chip">Creative review</span>
+              <h3>Feedback belongs with the work.</h3>
+              <p>
+                Mark up versions, resolve threads, request changes, and approve
+                with a clear history everyone can trust.
+              </p>
+
+              <div class="review-mock" aria-hidden="true">
+                <div class="review-mock__card">
+                  <div class="review-mock__top">
+                    Northstar motion study <span>Version 3</span>
+                  </div>
+                  <div class="review-mock__art"></div>
+                  <div class="review-mock__comment">
+                    <span class="avatar avatar--teal"></span>
+                    <span>Please hold the pace here.</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="bento__card bento__card--capacity"
+              data-reveal
+              style="--i: 1"
+            >
+              <svg
+                class="icon bento__icon"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="#i-calendar"></use>
+              </svg>
+              <h3>See capacity before the crunch.</h3>
+              <p>
+                Workload, deadlines, and project health in a calm, readable
+                view.
+              </p>
+              <div class="bars" aria-hidden="true">
+                <span style="--h: 38%; --n: 0"></span
+                ><span style="--h: 60%; --n: 1"></span
+                ><span style="--h: 32%; --n: 2"></span>
+                <span style="--h: 76%; --n: 3"></span
+                ><span style="--h: 44%; --n: 4"></span
+                ><span style="--h: 100%; --n: 5"></span>
+                <span style="--h: 58%; --n: 6"></span
+                ><span style="--h: 70%; --n: 7"></span
+                ><span style="--h: 40%; --n: 8"></span>
+                <span style="--h: 88%; --n: 9"></span>
+              </div>
+            </article>
+
+            <article
+              class="bento__card bento__card--projects"
+              data-reveal
+              style="--i: 2"
+            >
+              <svg
+                class="icon bento__icon"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="#i-layers"></use>
+              </svg>
+              <h3>Projects, not just tickets.</h3>
+              <p>
+                Hold client context, deliverables, people, and project progress
+                together.
+              </p>
+              <div class="mini-row" aria-hidden="true">
+                <span>Northstar identity</span><span>72%</span>
+                <span class="preview__progress-track"
+                  ><span class="preview__progress-fill"></span
+                ></span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Integrations -->
+      <section
+        class="section integrations"
+        aria-labelledby="integrations-title"
+      >
+        <div class="container integrations__inner">
+          <div class="integrations__copy" data-reveal>
+            <p class="eyebrow">Integration-ready</p>
+            <h2 class="section-title" id="integrations-title">
+              Meet the work where it already lives.
+            </h2>
+            <p class="section-lead">
+              Use CoolTeam as the composed project layer around the tools your
+              team already knows. Connection availability is always clearly
+              shown in the workspace.
+            </p>
+          </div>
+
+          <ul class="tiles">
+            <li class="tile" data-reveal style="--i: 0">
+              <svg class="icon" aria-hidden="true" focusable="false">
+                <use href="#i-file-image"></use>
+              </svg>
+              <h3>Creative files</h3>
+              <p>Ready when your team is.</p>
+            </li>
+            <li class="tile" data-reveal style="--i: 1">
+              <svg class="icon" aria-hidden="true" focusable="false">
+                <use href="#i-layers"></use>
+              </svg>
+              <h3>Project briefs</h3>
+              <p>Ready when your team is.</p>
+            </li>
+            <li class="tile" data-reveal style="--i: 2">
+              <svg class="icon" aria-hidden="true" focusable="false">
+                <use href="#i-calendar"></use>
+              </svg>
+              <h3>Team calendars</h3>
+              <p>Ready when your team is.</p>
+            </li>
+            <li class="tile" data-reveal style="--i: 3">
+              <svg class="icon" aria-hidden="true" focusable="false">
+                <use href="#i-shield-check"></use>
+              </svg>
+              <h3>Secure sharing</h3>
+              <p>Ready when your team is.</p>
+            </li>
+            <li class="tile" data-reveal style="--i: 4">
+              <svg class="icon" aria-hidden="true" focusable="false">
+                <use href="#i-command"></use>
+              </svg>
+              <h3>Quick actions</h3>
+              <p>Ready when your team is.</p>
+            </li>
+            <li class="tile" data-reveal style="--i: 5">
+              <svg class="icon" aria-hidden="true" focusable="false">
+                <use href="#i-circle-check"></use>
+              </svg>
+              <h3>Approval trails</h3>
+              <p>Ready when your team is.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Shared: pricing + CTA banner -->
+      <div data-component="pricing"></div>
+      <div data-component="cta-banner"></div>
+    </main>
+
+    <div data-component="footer"></div>
+  </body>
+</html>
