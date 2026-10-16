@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Set up your workspace — CoolTeam</title>
+    <meta name="robots" content="noindex" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+
+    <link
+      rel="shortcut icon"
+      href="assets/icons/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/forms.css" />
+    <link rel="stylesheet" href="css/onboarding.css" />
+
+    <script src="js/components.js" defer></script>
+    <script type="module" src="js/onboarding.js"></script>
+  </head>
+  <body class="onb-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="onb">
+      <div class="onb-card">
+        <header class="onb-header">
+          <a class="logo" href="index.html" aria-label="CoolTeam home">
+            <span class="logo__mark" aria-hidden="true">C</span
+            ><span>coolteam</span>
+          </a>
+          <p class="onb-header__hint">
+            A few moments now, a clearer workflow later.
+          </p>
+          <p class="onb-header__count" id="step-count" aria-live="polite">
+            1 / 9
+          </p>
+          <div class="onb-progress" aria-hidden="true">
+            <span id="progress-bar"></span>
+          </div>
+        </header>
+
+        <main class="onb-body" id="main">
+          <div class="onb-column">
+            <div class="onb-segments" id="segments" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span
+              ><span></span><span></span><span></span><span></span>
+            </div>
+
+            <form id="onboarding-form" novalidate>
+              <!-- 1 · Welcome -->
+              <section class="step-panel" data-step="1" aria-labelledby="t1">
+                <p class="step-panel__eyebrow">Welcome</p>
+                <h1 class="step-panel__title" id="t1" tabindex="-1">
+                  A calmer place to make great work.
+                </h1>
+                <p class="step-panel__lead">
+                  A few quick choices will shape a workspace that feels made for
+                  your team.
+                </p>
+                <div class="onb-note">
+                  <svg class="icon" aria-hidden="true" focusable="false">
+                    <use href="#i-sparkles"></use>
+                  </svg>
+                  <p>
+                    <strong>No generic setup.</strong> We’ll shape your starting
+                    space around the way your team actually moves from brief to
+                    delivery.
+                  </p>
+                </div>
+              </section>
+
+              <!-- 2 · Team type -->
+              <section
+                class="step-panel"
+                data-step="2"
+                aria-labelledby="t2"
+                hidden
+              >
+                <p class="step-panel__eyebrow">Team type</p>
+                <h1 class="step-panel__title" id="t2" tabindex="-1">
+                  What type of team are you?
+                </h1>
+                <p class="step-panel__lead">
+                  We’ll tune the starting experience around how your work moves.
+                </p>
+                <fieldset class="options" aria-describedby="err-2">
+                  <legend class="sr-only">Team type</legend>
+                  <label class="option"
+                    ><input
+                      type="radio"
+                      name="teamType"
+                      value="Creative agency" /><span>Creative agency</span
+                    ><span class="option__mark"
+                      ><svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="#i-check"></use></svg></span
+                  ></label>
+                  <label class="option"
+                    ><input
+                      type="radio"
+                      name="teamType"
+                      value="In-house creative team" /><span
+                      >In-house creative team</span
+                    ><span class="option__mark"
+                      ><svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="#i-check"></use></svg></span
+                  ></label>
+                  <label class="option"
+                    ><input
+                      type="radio"
+                      name="teamType"
+                      value="Independent creative" /><span
+                      >Independent creative</span
+                    ><span class="option__mark"
+                      ><svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="#i-check"></use></svg></span
+                  ></label>
+                  <label class="option"
+                    ><input
+                      type="radio"
+                      name="teamType"
+                      value="Client team" /><span>Client team</span
+                    ><span class="option__mark"
+                      ><svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="#i-check"></use></svg></span
+                  ></label>
+                </fieldset>
+                <p
+                  class="field__error onb-error"
+                  id="err-2"
+                  role="alert"
+                  hidden
+                >
+                  <svg class="icon" aria-hidden="true" focusable="false">
+                    <use href="#i-alert-circle"></use></svg
+                  ><span></span>
+                </p>
+              </section>
+
+              <!-- 3 · Role -->
+              <section
+                class="step-panel"
+                data-step="3"
+                aria-labelledby="t3"
+                hidden
+              >
+                <p class="step-panel__eyebrow">Role</p>
+                <h1 class="step-panel__title" id="t3" tabindex="-1">
+                  What’s your role?
+                </h1>
+                <p class="step-panel__lead">
+                  This helps us make your first view more useful.
+                </p>
+                <fieldset class="options" aria-describedby="err-3">
+                  <legend class="sr-only">Your role</legend>
+                  <label class="option"
+                    ><input
+                      type="radio"
+                      name="role"
+                      value="Creative lead" /><span>Creative lead</span
+                    ><span class="option__mark"
+                      ><svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="#i-check"></use></svg></span
+                  ></label>
+                  <label class="option"
+                    ><input
+                      type="radio"
+                      name="role"
+                      value="Project manager" /><span>Project manager</span
+                    ><span class="option__mark"
+                      ><svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="#i-check"></use></svg></span
+                  ></label>
+                  <label class="option"
+                    ><input
+                      type="radio"
+                      name="role"
+                      value="Designer or maker" /><span>Designer or maker</span
+                    ><span class="option__mark"
+                      ><svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="#i-check"></use></svg></span
+                  ></label>
+                  <label class="option"
+                    ><input
+                      type="radio"
+                      name="role"
+                      value="Founder or operator" /><span
+                      >Founder or operator</span
+                    ><span class="option__mark"
+                      ><svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="#i-check"></use></svg></span
+                  ></label>
+                </fieldset>
+                <p
+                  class="field__error onb-error"
+                  id="err-3"
+                  role="alert"
+                  hidden
+                >
+                  <svg class="icon" aria-hidden="true" focusable="false">
+                    <use href="#i-alert-circle"></use></svg
+                  ><span></span>
+                </p>
+              </section>
+
+              <!-- 4 · Team size -->
+              <section
+                class="step-panel"
+                data-step="4"
+                aria-labelledby="t4"
+                hidden
+              >
+                <p class="step-panel__eyebrow">Team size</p>
+                <h1 class="step-panel__title" id="t4" tabindex="-1">
+                  How many people work here?
+                </h1>
+                <p class="step-panel__lead">
+                  You can change this later as your team grows.
+                </p>
+                <fieldset class="options" aria-describedby="err-4">
+                  <legend class="sr-only">Team size</legend>
+                  <label class="option"
+                    ><input type="radio" name="size" value="Just me" /><span
+                      >Just me</span
+                    ><span class="option__mark"
+                      ><svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="#i-check"></use></svg></span
+                  ></label>
+                  <label class="option"
+                    ><input type="radio" name="size" value="2–5 people" /><span
+                      >2–5 people</span
+                    ><span class="option__mark"
+                      ><svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="#i-check"></use></svg></span
+                  ></label>
+                  <label class="option"
+                    ><input type="radio" name="size" value="6–20 people" /><span
+                      >6–20 people</span
+                    ><span class="option__mark"
+                      ><svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="#i-check"></use></svg></span
+                  ></label>
+                  <label class="option"
+                    ><input type="radio" name="size" value="21+ people" /><span
+                      >21+ people</span
+                    ><span class="option__mark"
+                      ><svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="#i-check"></use></svg></span
+                  ></label>
+                </fieldset>
+                <p
+                  class="field__error onb-error"
+                  id="err-4"
+                  role="alert"
+                  hidden
+                >
+                  <svg class="icon" aria-hidden="true" focusable="false">
+                    <use href="#i-alert-circle"></use></svg
+                  ><span></span>
+                </p>
+              </section>
+
+              <!-- 5 · Goals -->
+              <section
+                class="step-panel"
+                data-step="5"
+                aria-labelledby="t5"
+                hidden
+              >
+                <p class="step-panel__eyebrow">Goals</p>
+                <h1 class="step-panel__title" id="t5" tabindex="-1">
+                  What do you want to improve first?
+                </h1>
+                <p class="step-panel__lead">
+                  Pick as many as are useful. We’ll surface the right starting
+                  points.
+                </p>
+                <fieldset class="options" aria-describedby="err-5">
+                  <legend class="sr-only">Goals</legend>
+                  <label class="option"
+                    ><input
+                      type="checkbox"
+                      name="goals"
+                      value="Keep projects moving" /><span
+                      >Keep projects moving</span
+                    ><span class="option__mark"
+                      ><svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="#i-check"></use></svg></span
+                  ></label>
+                  <label class="option"
+                    ><input
+                      type="checkbox"
+                      name="goals"
+                      value="Review creative faster" /><span
+                      >Review creative faster</span
+                    ><span class="option__mark"
+                      ><svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="#i-check"></use></svg></span
+                  ></label>
+                  <label class="option"
+                    ><input
+                      type="checkbox"
+                      name="goals"
+                      value="Plan team capacity" /><span
+                      >Plan team capacity</span
+                    ><span class="option__mark"
+                      ><svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="#i-check"></use></svg></span
+                  ></label>
+                  <label class="option"
+                    ><input
+                      type="checkbox"
+                      name="goals"
+                      value="Bring client work into view" /><span
+                      >Bring client work into view</span
+                    ><span class="option__mark"
+                      ><svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="#i-check"></use></svg></span
+                  ></label>
+                </fieldset>
+                <p
+                  class="field__error onb-error"
+                  id="err-5"
+                  role="alert"
+                  hidden
+                >
+                  <svg class="icon" aria-hidden="true" focusable="false">
+                    <use href="#i-alert-circle"></use></svg
+                  ><span></span>
+                </p>
+              </section>
+
+              <!-- 6 · Workspace -->
+              <section
+                class="step-panel"
+                data-step="6"
+                aria-labelledby="t6"
+                hidden
+              >
+                <p class="step-panel__eyebrow">Create workspace</p>
+                <h1 class="step-panel__title" id="t6" tabindex="-1">
+                  Name your workspace.
+                </h1>
+                <p class="step-panel__lead">
+                  This becomes the home for your projects, people, and
+                  decisions.
+                </p>
+                <div class="field">
+                  <label class="field__label" for="workspace"
+                    >Workspace name</label
+                  >
+                  <input
+                    class="field__input field__input--plain"
+                    id="workspace"
+                    name="workspace"
+                    type="text"
+                    maxlength="60"
+                    autocomplete="organization"
+                    placeholder="e.g. Northstar Studio"
+                    aria-describedby="workspace-hint err-6"
+                  />
+                  <p class="field__hint" id="workspace-hint">
+                    Your team can change this later in workspace settings.
+                  </p>
+                  <p class="field__error" id="err-6" role="alert" hidden>
+                    <svg class="icon" aria-hidden="true" focusable="false">
+                      <use href="#i-alert-circle"></use></svg
+                    ><span></span>
+                  </p>
+                </div>
+              </section>
+
+              <!-- 7 · Invite -->
+              <section
+                class="step-panel"
+                data-step="7"
+                aria-labelledby="t7"
+                hidden
+              >
+                <p class="step-panel__eyebrow">Invite team</p>
+                <h1 class="step-panel__title" id="t7" tabindex="-1">
+                  Bring in the people you trust.
+                </h1>
+                <p class="step-panel__lead">
+                  Invite teammates now, or send thoughtful invitations later.
+                </p>
+                <div class="invite-card">
+                  <div class="invite-card__row">
+                    <span class="icon-box icon-box--teal" aria-hidden="true"
+                      ><svg class="icon" focusable="false">
+                        <use href="#i-mail-plus"></use></svg
+                    ></span>
+                    <div class="invite-card__fields">
+                      <label class="field__label" for="invite-email"
+                        >Team email</label
+                      >
+                      <div class="invite-card__input">
+                        <input
+                          class="field__input"
+                          id="invite-email"
+                          type="email"
+                          inputmode="email"
+                          autocomplete="off"
+                          placeholder="teammate@studio.com"
+                          aria-describedby="err-7"
+                        />
+                        <button class="btn--add" type="button" id="invite-add">
+                          Add
+                        </button>
+                      </div>
+                      <p
+                        class="field__error"
+                        id="err-7"
+                        role="alert"
+                        hidden
+                        style="margin-top: 0.5rem"
+                      >
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                          <use href="#i-alert-circle"></use></svg
+                        ><span></span>
+                      </p>
+                    </div>
+                  </div>
+                  <ul
+                    class="invite-list"
+                    id="invite-list"
+                    aria-label="People to invite"
+                  ></ul>
+                  <p class="invite-card__hint">
+                    Invites grant access to your workspace. You can tailor roles
+                    later in Team management.
+                  </p>
+                </div>
+              </section>
+
+              <!-- 8 · Project -->
+              <section
+                class="step-panel"
+                data-step="8"
+                aria-labelledby="t8"
+                hidden
+              >
+                <p class="step-panel__eyebrow">Create project</p>
+                <h1 class="step-panel__title" id="t8" tabindex="-1">
+                  Start your first project.
+                </h1>
+                <p class="step-panel__lead">
+                  Give the work a clear place to begin.
+                </p>
+                <div class="field">
+                  <label class="field__label" for="project">Project name</label>
+                  <div class="field__control">
+                    <span class="icon-box" aria-hidden="true"
+                      ><svg class="icon" focusable="false">
+                        <use href="#i-plus"></use></svg
+                    ></span>
+                    <input
+                      class="field__input field__input--box"
+                      id="project"
+                      name="project"
+                      type="text"
+                      maxlength="80"
+                      placeholder="e.g. Brand refresh"
+                      aria-describedby="err-8"
+                    />
+                  </div>
+                  <p class="field__error" id="err-8" role="alert" hidden>
+                    <svg class="icon" aria-hidden="true" focusable="false">
+                      <use href="#i-alert-circle"></use></svg
+                    ><span></span>
+                  </p>
+                </div>
+                <div
+                  class="form-alert onb-error"
+                  id="save-error"
+                  role="alert"
+                  hidden
+                >
+                  <svg class="icon" aria-hidden="true" focusable="false">
+                    <use href="#i-alert-circle"></use></svg
+                  ><span></span>
+                </div>
+              </section>
+
+              <!-- 9 · Completion -->
+              <section
+                class="step-panel"
+                data-step="9"
+                aria-labelledby="t9"
+                hidden
+              >
+                <span
+                  class="icon-box icon-box--teal icon-box--lg onb-done-icon"
+                  aria-hidden="true"
+                  ><svg class="icon" focusable="false">
+                    <use href="#i-circle-check"></use></svg
+                ></span>
+                <p class="step-panel__eyebrow" style="margin-top: 1rem">
+                  Completion
+                </p>
+                <h1 class="step-panel__title" id="t9" tabindex="-1">
+                  Your workspace is ready.
+                </h1>
+                <p class="step-panel__lead">
+                  We’ve set up a composed home for your creative operations.
+                </p>
+                <div class="summary">
+                  <div class="summary__item">
+                    <h3>A home for work</h3>
+                    <p>Projects, briefs, and files live together.</p>
+                  </div>
+                  <div class="summary__item">
+                    <h3>A shared pulse</h3>
+                    <p>Every handoff, review, and decision stays visible.</p>
+                  </div>
+                  <div class="summary__item">
+                    <h3>A next step</h3>
+                    <p>Start with a dashboard shaped around attention.</p>
+                  </div>
+                </div>
+              </section>
+
+              <div class="onb-actions">
+                <button class="btn-ghost" type="button" id="btn-back">
+                  <svg class="icon" aria-hidden="true" focusable="false">
+                    <use href="#i-arrow-left"></use></svg
+                  >Back
+                </button>
+                <div class="onb-actions__right">
+                  <button class="btn-ghost" type="button" id="btn-skip" hidden>
+                    Skip for now
+                  </button>
+                  <button class="btn btn--primary" type="submit" id="btn-next">
+                    <span class="btn__label">Continue</span>
+                    <svg class="icon" aria-hidden="true" focusable="false">
+                      <use href="#i-arrow-right"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
