@@ -11,18 +11,6 @@
   color: #fff;
   background: var(--gradient-hero);
 }
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-  background-size: 4.5rem 4.5rem;
-  mask-image: linear-gradient(to bottom, #000 30%, transparent 95%);
-  -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent 95%);
-}
 
 .hero__inner {
   display: grid;
