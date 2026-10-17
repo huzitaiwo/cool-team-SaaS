@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects — CoolTeam</title>
+    <meta name="robots" content="noindex" />
+
+    <link
+      rel="shortcut icon"
+      href="assets/icons/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/forms.css" />
+    <link rel="stylesheet" href="css/app-shell.css" />
+    <link rel="stylesheet" href="css/app-components.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <script src="js/components.js" defer></script>
+    <script type="module" src="js/projects.js"></script>
+  </head>
+  <body class="app-page" data-page="projects">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="app" id="app">
+      <div data-app="sidebar"></div>
+      <div class="app__main">
+        <div
+          data-app="topbar"
+          data-eyebrow="All work"
+          data-title="Projects"
+        ></div>
+
+        <main class="app__content" id="main">
+          <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+
+          <div class="page-intro">
+            <p class="page-intro__text">
+              A composed view of every client and internal initiative.
+            </p>
+            <div class="page-intro__actions">
+              <div
+                class="segmented"
+                role="radiogroup"
+                aria-label="Preview page state"
+              >
+                <span class="segmented__label" aria-hidden="true">State</span>
+                <label
+                  ><input
+                    type="radio"
+                    name="state"
+                    value="default"
+                    checked
+                  /><span>Default</span></label
+                >
+                <label
+                  ><input type="radio" name="state" value="loading" /><span
+                    >Loading</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="state" value="empty" /><span
+                    >Empty</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="state" value="error" /><span
+                    >Error</span
+                  ></label
+                >
+              </div>
+              <button
+                class="btn btn--primary btn--md"
+                type="button"
+                data-new-project
+              >
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use href="#i-plus"></use></svg
+                >Create project
+              </button>
+            </div>
+          </div>
+
+          <div class="toolbar">
+            <div class="searchbar">
+              <svg class="icon" aria-hidden="true" focusable="false">
+                <use href="#i-search"></use>
+              </svg>
+              <input
+                id="search"
+                type="search"
+                placeholder="Search projects"
+                aria-label="Search projects"
+                autocomplete="off"
+              />
+            </div>
+            <div class="menu-wrap">
+              <button
+                class="btn btn--outline btn--md"
+                type="button"
+                id="filter-btn"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                aria-controls="filter-menu"
+              >
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use href="#i-filter"></use></svg
+                ><span id="filter-label">Filter</span>
+              </button>
+              <div
+                class="menu"
+                id="filter-menu"
+                role="menu"
+                aria-label="Filter by status"
+                hidden
+              ></div>
+            </div>
+            <div class="view-toggle" role="group" aria-label="View">
+              <button
+                type="button"
+                data-view="grid"
+                aria-pressed="true"
+                aria-label="Grid view"
+              >
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use href="#i-layout-grid"></use>
+                </svg>
+              </button>
+              <button
+                type="button"
+                data-view="list"
+                aria-pressed="false"
+                aria-label="List view"
+              >
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use href="#i-list"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <section id="projects-body" aria-label="Projects"></section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

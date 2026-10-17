@@ -18,8 +18,10 @@ import {
 import {
   doc,
   getDoc,
+  collection,
+  addDoc,
+  serverTimestamp,
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
-import { NOTIFICATIONS, COMMANDS } from "./sample-data.js";
 
 /* Helpers ------------------------------------------------------------------ */
 export const esc = (s) =>
@@ -406,3 +408,113 @@ export const session = new Promise((resolve) => {
     resolve({ user, name, firstName: name.split(/\s+/)[0], workspace, role });
   });
 });
+
+/* ==========================================================================
+   Global: notification read-state + Create project modal
+   ========================================================================== */
+const READ_KEY = "coolteam.notifs.read";
+
+export function setNotificationsRead(read) {
+  try {
+    localStorage.setItem(READ_KEY, read ? "1" : "0");
+  } catch {}
+  document
+    .querySelectorAll(".nav__badge, .icon-btn__dot")
+    .forEach((el) => (el.hidden = read));
+  notifToggle.setAttribute(
+    "aria-label",
+    read ? "Notifications" : `Notifications, ${NOTIFICATIONS.length} unread`,
+  );
+}
+try {
+  if (localStorage.getItem(READ_KEY) === "1") setNotificationsRead(true);
+} catch {}
+
+const projectModal = document.createElement("dialog");
+projectModal.className = "modal";
+projectModal.setAttribute("aria-labelledby", "pm-title");
+projectModal.innerHTML = `
+  <div class="modal__head">
+    <h2 class="modal__title" id="pm-title">Create a project</h2>
+    <button class="modal__close" type="button" data-close aria-label="Close">${icon("x")}</button>
+  </div>
+  <form id="pm-form" novalidate>
+    <div class="form-alert" role="alert" hidden>${icon("alert-circle")}<span></span></div>
+    <div class="field">
+      <label class="field__label" for="pm-name">Project name</label>
+      <input class="field__input" id="pm-name" type="text" maxlength="80" placeholder="e.g. Summer launch" autocomplete="off">
+    </div>
+    <div class="field">
+      <label class="field__label" for="pm-status">Status</label>
+      <select class="field__input" id="pm-status">
+        <option value="active">Active</option>
+        <option value="planning">Planning</option>
+        <option value="on-hold">On hold</option>
+      </select>
+    </div>
+    <button class="btn btn--primary btn--block btn--md" type="submit" id="pm-submit" disabled>Create project</button>
+  </form>`;
+document.body.append(projectModal);
+
+const pmForm = $("#pm-form");
+const pmName = $("#pm-name");
+const pmSubmit = $("#pm-submit");
+
+export function openProjectModal() {
+  pmForm.reset();
+  pmSubmit.disabled = true;
+  pmForm.querySelector(".form-alert").hidden = true;
+  if (!projectModal.open) projectModal.showModal();
+  pmName.focus();
+}
+
+pmName.addEventListener("input", () => {
+  pmSubmit.disabled = pmName.value.trim().length < 2;
+});
+projectModal.addEventListener("click", (e) => {
+  if (e.target === projectModal || e.target.closest("[data-close]"))
+    projectModal.close();
+});
+
+pmForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const alertBox = pmForm.querySelector(".form-alert");
+  alertBox.hidden = true;
+  const { user, workspace } = await session;
+  if (!workspace) {
+    alertBox.querySelector("span").textContent =
+      "We couldn’t find your workspace. Finish onboarding first.";
+    alertBox.hidden = false;
+    return;
+  }
+  pmSubmit.disabled = true;
+  pmSubmit.textContent = "Creating…";
+  try {
+    await addDoc(collection(db, "workspaces", workspace.id, "projects"), {
+      name: pmName.value.trim(),
+      status: $("#pm-status").value,
+      progress: 0,
+      createdBy: user.uid,
+      createdAt: serverTimestamp(),
+    });
+    projectModal.close();
+    document.dispatchEvent(new CustomEvent("project:created"));
+    if (page !== "projects") location.assign("projects.html");
+  } catch {
+    alertBox.querySelector("span").textContent =
+      "We couldn’t create the project. Check your connection and try again.";
+    alertBox.hidden = false;
+  } finally {
+    pmSubmit.textContent = "Create project";
+    pmSubmit.disabled = pmName.value.trim().length < 2;
+  }
+});
+
+document.addEventListener("click", (e) => {
+  if (e.target.closest('[data-new-project], a[href$="projects.html#new"]')) {
+    e.preventDefault();
+    setDrawer(false);
+    openProjectModal();
+  }
+});
+if (location.hash === "#new") session.then(openProjectModal);

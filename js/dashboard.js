@@ -1,5 +1,14 @@
-import { session, esc, icon, initials } from "./app-shell.js";
+import { session, esc, icon } from "./app-shell.js";
 import { PEOPLE, fetchDashboard } from "./sample-data.js";
+import {
+  avatar,
+  projectsGridHTML as projectsHTML,
+  projectsSkeleton as _ps,
+  listSkeleton,
+  emptyBox,
+  errorBox,
+} from "./ui.js";
+const projectsSkeleton = () => _ps(2, 4);
 
 const $ = (s) => document.querySelector(s);
 const els = {
@@ -23,17 +32,6 @@ function setGreeting(firstName) {
   }).format(new Date());
 }
 
-/* Small renderers ---------------------------------------------------------- */
-const avatar = (key, size = "sm") => {
-  const p = PEOPLE[key];
-  return `<span class="avatar avatar--${size}${p.color ? ` avatar--${p.color}` : ""}" title="${esc(p.name)}">${esc(p.initials)}</span>`;
-};
-const STATUS = {
-  "on-track": ["badge--success", "On track"],
-  "at-risk": ["badge--warning", "At risk"],
-  delayed: ["badge--danger", "Delayed"],
-};
-
 const statsHTML = (stats, mode) =>
   stats
     .map(
@@ -48,58 +46,6 @@ const statsHTML = (stats, mode) =>
     </article>`,
     )
     .join("");
-
-const statsSkeleton = () =>
-  Array.from(
-    { length: 4 },
-    () => `
-    <article class="stat" aria-hidden="true">
-      <div class="stat__top"><span class="skeleton" style="--w:6rem;--h:.8rem"></span><span class="skeleton" style="--w:2.4rem;--h:2.4rem;border-radius:.75rem"></span></div>
-      <span class="skeleton" style="--w:3.5rem;--h:2.2rem;margin-top:.7rem"></span>
-      <span class="skeleton" style="--w:70%;--h:.7rem;margin-top:.7rem"></span>
-    </article>`,
-  ).join("");
-
-const projectsHTML = (projects) => `
-  <div class="project-grid">
-    ${projects
-      .map((p) => {
-        const [cls, label] = STATUS[p.status];
-        return `
-      <article class="project-card">
-        <div class="project-card__top">
-          <span class="project-card__dot" style="--dot:${p.dot}" aria-hidden="true"></span>
-          <span class="badge ${cls}">${label}</span>
-        </div>
-        <h3 class="project-card__title">${esc(p.name)}</h3>
-        <p class="project-card__meta">${esc(p.client)} · due ${esc(p.due)}</p>
-        <div class="project-card__foot">
-          <div class="project-card__progress">
-            <div class="progress" role="progressbar" aria-label="${esc(p.name)} progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${p.progress}">
-              <span class="progress__bar" style="--value:${p.progress}%"></span>
-            </div>
-            <span>${p.progress}% complete</span>
-          </div>
-          <span class="avatar-stack">${p.members.map((m) => avatar(m)).join("")}</span>
-        </div>
-      </article>`;
-      })
-      .join("")}
-  </div>`;
-
-const projectsSkeleton = () => `
-  <div class="project-grid" aria-hidden="true">
-    ${Array.from(
-      { length: 4 },
-      () => `
-      <div class="project-card">
-        <div class="project-card__top"><span class="skeleton" style="--w:.55rem;--h:.55rem" ></span><span class="skeleton" style="--w:4.5rem;--h:1.4rem;border-radius:99px"></span></div>
-        <span class="skeleton" style="--w:70%;--h:1.3rem;margin-top:1.1rem"></span>
-        <span class="skeleton" style="--w:50%;--h:.7rem;margin-top:.7rem"></span>
-        <span class="skeleton" style="--h:.4rem;margin-top:1.4rem"></span>
-      </div>`,
-    ).join("")}
-  </div>`;
 
 const tasksHTML = (tasks) => `
   <ul class="task-list">
@@ -117,18 +63,6 @@ const tasksHTML = (tasks) => `
       )
       .join("")}
   </ul>`;
-
-const listSkeleton = (n, withAvatar = true) => `
-  <div class="task-list" aria-hidden="true">
-    ${Array.from(
-      { length: n },
-      () => `
-      <div class="task-row">
-        ${withAvatar ? '<span class="skeleton skeleton--round" style="--w:2.2rem;--h:2.2rem;flex:none"></span>' : '<span class="skeleton skeleton--round" style="--w:1.4rem;--h:1.4rem;flex:none"></span>'}
-        <div class="task-row__text"><span class="skeleton" style="--w:80%;--h:.85rem"></span><span class="skeleton" style="--w:40%;--h:.65rem;margin-top:.5rem"></span></div>
-      </div>`,
-    ).join("")}
-  </div>`;
 
 const workloadHTML = (rows) => `
   <div class="meter-list">
@@ -163,13 +97,6 @@ const activityHTML = (items) => `
       )
       .join("")}
   </ul>`;
-
-const emptyBox = (title, text, action) => `
-  <div class="state-box">
-    <span class="state-box__icon" aria-hidden="true">${icon("sparkles")}</span>
-    <h3>${title}</h3><p>${text}</p>
-    ${action ? `<a class="btn btn--primary" href="${action.href}">${action.label}</a>` : ""}
-  </div>`;
 
 const errorBox = () => `
   <div class="state-box" role="alert">

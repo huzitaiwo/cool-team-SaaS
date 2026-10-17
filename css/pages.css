@@ -1,0 +1,201 @@
+/* ==========================================================================
+   CoolTeam · pages.css — layouts specific to individual app pages
+   ========================================================================== */
+
+.project-grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.project-grid--list.project-grid--3 {
+  grid-template-columns: 1fr;
+}
+@media (max-width: 1100px) {
+  .project-grid--3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .project-grid--3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Flush list card (My Tasks, Notifications) */
+.panel--flush {
+  padding: 0;
+  overflow: hidden;
+}
+.panel--flush .task-row {
+  padding: 1rem 1.25rem;
+}
+.panel--flush .task-row:first-child {
+  padding-top: 1rem;
+  border-top: 0;
+}
+.task-row__side {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--color-brand-600);
+}
+.footer-link .icon {
+  width: 1rem;
+  height: 1rem;
+  transition: transform var(--dur) var(--ease-out);
+}
+.footer-link:hover .icon {
+  transform: translateX(4px);
+}
+
+/* Notifications */
+.notif {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.9rem;
+  padding: 1.05rem 1.25rem;
+  border-top: 1px solid var(--color-border);
+  transition: background-color var(--dur) ease;
+}
+.notif:first-child {
+  border-top: 0;
+}
+.notif:hover {
+  background: #fbfaff;
+}
+.notif__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-top: 0.45rem;
+  border-radius: 50%;
+  background: #cfd4e4;
+  transition: background-color var(--dur) ease;
+}
+.notif.is-unread .notif__dot {
+  background: var(--color-brand-600);
+}
+.notif__title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+.notif:not(.is-unread) .notif__title {
+  font-weight: 500;
+  color: #50567a;
+}
+.notif__text {
+  margin-top: 0.15rem;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+.notif .badge {
+  margin-top: 0.55rem;
+}
+.notif time {
+  font-size: 0.72rem;
+  color: var(--color-muted);
+}
+.notif-prefs {
+  display: grid;
+  gap: 0.7rem;
+}
+.stack {
+  display: grid;
+  gap: 1.25rem;
+}
+
+/* Team */
+.member {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.member strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-ink);
+}
+.member small {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--color-muted);
+}
+.role-select {
+  height: 2.5rem;
+  min-width: 10.5rem;
+  padding: 0 0.7rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.7rem;
+  background: #fff;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
+.role-select:disabled {
+  background: var(--color-bg-alt);
+  cursor: not-allowed;
+}
+.role-select:hover:not(:disabled) {
+  border-color: #cdbdf7;
+}
+.table td.align-end,
+.table th.align-end {
+  text-align: right;
+}
+
+@media (max-width: 760px) {
+  .table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  .table,
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
+    width: 100%;
+  }
+  .table tr {
+    padding: 0.9rem 1rem;
+    border-top: 1px solid var(--color-border);
+  }
+  .table tbody tr:first-child {
+    border-top: 0;
+  }
+  .table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.35rem 0;
+    border: 0;
+  }
+  .table td[data-label]::before {
+    content: attr(data-label);
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8a91ad;
+  }
+  .table td.align-end {
+    text-align: left;
+  }
+}
+@media (max-width: 640px) {
+  .toolbar {
+    flex-wrap: wrap;
+  }
+  .searchbar {
+    flex-basis: 100%;
+  }
+}
