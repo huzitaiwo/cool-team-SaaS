@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Tasks — CoolTeam</title>
+    <meta name="robots" content="noindex" />
+
+    <link
+      rel="shortcut icon"
+      href="assets/icons/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/forms.css" />
+    <link rel="stylesheet" href="css/app-shell.css" />
+    <link rel="stylesheet" href="css/app-components.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <script src="js/components.js" defer></script>
+    <script type="module" src="js/tasks.js"></script>
+  </head>
+  <body class="app-page" data-page="tasks">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="app" id="app">
+      <div data-app="sidebar"></div>
+      <div class="app__main">
+        <div
+          data-app="topbar"
+          data-eyebrow="Workspace"
+          data-title="My Tasks"
+        ></div>
+        <main class="app__content" id="main">
+          <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+
+          <div class="page-intro">
+            <p class="page-intro__text">
+              Everything with your name on it, arranged by the next needed
+              decision.
+            </p>
+            <div class="segmented" role="radiogroup" aria-label="Filter tasks">
+              <label
+                ><input type="radio" name="filter" value="open" checked /><span
+                  >Open</span
+                ></label
+              >
+              <label
+                ><input type="radio" name="filter" value="all" /><span
+                  >All</span
+                ></label
+              >
+              <label
+                ><input type="radio" name="filter" value="done" /><span
+                  >Done</span
+                ></label
+              >
+            </div>
+          </div>
+
+          <section
+            class="panel panel--flush"
+            id="tasks-body"
+            aria-label="Tasks"
+          ></section>
+          <p>
+            <a class="footer-link" href="projects.html"
+              >Open project board
+              <svg class="icon" aria-hidden="true" focusable="false">
+                <use href="#i-arrow-right"></use></svg
+            ></a>
+          </p>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
