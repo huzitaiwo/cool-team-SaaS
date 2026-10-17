@@ -1091,3 +1091,34 @@
     align-items: flex-start;
   }
 }
+
+.project-card {
+  position: relative;
+}
+.project-card__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+.project-card__link:focus-visible {
+  outline: none;
+}
+.project-card:has(.project-card__link:focus-visible) {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+.avatar--empty {
+  background: #fff;
+  border: 1.5px dashed #c5cbe0;
+  color: #98a0bd;
+}
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 0.4rem;
+  background: #f3edff;
+  font-size: 0.64rem;
+  font-weight: 600;
+  color: var(--color-brand-700);
+}

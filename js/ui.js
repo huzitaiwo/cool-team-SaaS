@@ -23,7 +23,7 @@ export const projectCardHTML = (p) => {
       <span class="project-card__dot" style="--dot:${p.dot}" aria-hidden="true"></span>
       <span class="badge ${cls}">${label}</span>
     </div>
-    <h3 class="project-card__title">${esc(p.name)}</h3>
+        <h3 class="project-card__title"><a class="project-card__link" href="project.html?id=${encodeURIComponent(p.id)}">${esc(p.name)}</a></h3>
     <p class="project-card__meta">${esc(p.client)} · ${p.due.startsWith("No") ? esc(p.due) : `due ${esc(p.due)}`}</p>
     <div class="project-card__foot">
       <div class="project-card__progress">
