@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Settings — CoolTeam</title>
+    <meta name="robots" content="noindex" />
+
+    <link
+      rel="shortcut icon"
+      href="assets/icons/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/forms.css" />
+    <link rel="stylesheet" href="css/app-shell.css" />
+    <link rel="stylesheet" href="css/app-components.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <script src="js/components.js" defer></script>
+    <script type="module" src="js/settings.js"></script>
+  </head>
+  <body class="app-page" data-page="settings">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="app" id="app">
+      <div data-app="sidebar"></div>
+      <div class="app__main">
+        <div
+          data-app="topbar"
+          data-eyebrow="Workspace"
+          data-title="Settings"
+        ></div>
+        <main class="app__content" id="main">
+          <div class="tabs" role="tablist" aria-label="Settings sections">
+            <button
+              class="tab"
+              role="tab"
+              id="tab-profile"
+              aria-controls="panel-profile"
+              aria-selected="true"
+              type="button"
+            >
+              Profile
+            </button>
+            <button
+              class="tab"
+              role="tab"
+              id="tab-workspace"
+              aria-controls="panel-workspace"
+              aria-selected="false"
+              tabindex="-1"
+              type="button"
+            >
+              Workspace
+            </button>
+            <button
+              class="tab"
+              role="tab"
+              id="tab-notifications"
+              aria-controls="panel-notifications"
+              aria-selected="false"
+              tabindex="-1"
+              type="button"
+            >
+              Notifications
+            </button>
+            <button
+              class="tab"
+              role="tab"
+              id="tab-security"
+              aria-controls="panel-security"
+              aria-selected="false"
+              tabindex="-1"
+              type="button"
+            >
+              Security
+            </button>
+          </div>
+
+          <!-- Profile -->
+          <section
+            class="panel settings-card"
+            role="tabpanel"
+            id="panel-profile"
+            aria-labelledby="tab-profile"
+          >
+            <div class="settings-card__head">
+              <span class="avatar avatar--lg" data-me-avatar>·</span>
+              <div>
+                <h2 data-me-name>Profile</h2>
+                <p>Customize the way this workspace supports your work.</p>
+              </div>
+            </div>
+            <form class="settings-form" id="profile-form" novalidate>
+              <div class="form-alert" role="alert" hidden>
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use href="#i-alert-circle"></use></svg
+                ><span></span>
+              </div>
+              <div class="settings-form__row">
+                <div class="field">
+                  <label class="field__label" for="full-name">Full name</label>
+                  <input
+                    class="field__input"
+                    id="full-name"
+                    type="text"
+                    autocomplete="name"
+                    maxlength="60"
+                    aria-describedby="full-name-error"
+                  />
+                  <p class="field__error" id="full-name-error" hidden>
+                    <svg class="icon" aria-hidden="true" focusable="false">
+                      <use href="#i-alert-circle"></use></svg
+                    ><span></span>
+                  </p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="email">Email address</label>
+                  <input
+                    class="field__input"
+                    id="email"
+                    type="email"
+                    readonly
+                    aria-describedby="email-hint"
+                  />
+                  <p class="field__hint" id="email-hint">
+                    Email changes aren’t available yet.
+                  </p>
+                </div>
+              </div>
+              <button class="btn btn--primary btn--md" type="submit">
+                Save changes
+              </button>
+            </form>
+          </section>
+
+          <!-- Workspace -->
+          <section
+            class="panel settings-card"
+            role="tabpanel"
+            id="panel-workspace"
+            aria-labelledby="tab-workspace"
+            hidden
+          >
+            <div class="settings-card__head">
+              <span class="avatar avatar--lg" data-me-avatar>·</span>
+              <div>
+                <h2>Workspace</h2>
+                <p>Customize the way this workspace supports your work.</p>
+              </div>
+            </div>
+            <form class="settings-form" id="workspace-form" novalidate>
+              <div class="form-alert" role="alert" hidden>
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use href="#i-alert-circle"></use></svg
+                ><span></span>
+              </div>
+              <div class="settings-form__row">
+                <div class="field">
+                  <label class="field__label" for="ws-name"
+                    >Workspace name</label
+                  >
+                  <input
+                    class="field__input"
+                    id="ws-name"
+                    type="text"
+                    maxlength="60"
+                    aria-describedby="ws-name-error"
+                  />
+                  <p class="field__error" id="ws-name-error" hidden>
+                    <svg class="icon" aria-hidden="true" focusable="false">
+                      <use href="#i-alert-circle"></use></svg
+                    ><span></span>
+                  </p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="ws-slug"
+                    >Workspace URL</label
+                  >
+                  <div class="input-group">
+                    <span class="input-group__prefix" aria-hidden="true"
+                      >coolteam.com/</span
+                    >
+                    <input
+                      class="field__input"
+                      id="ws-slug"
+                      type="text"
+                      maxlength="40"
+                      aria-describedby="ws-slug-error"
+                    />
+                  </div>
+                  <p class="field__error" id="ws-slug-error" hidden>
+                    <svg class="icon" aria-hidden="true" focusable="false">
+                      <use href="#i-alert-circle"></use></svg
+                    ><span></span>
+                  </p>
+                </div>
+              </div>
+              <p class="settings-note" id="ws-note" hidden>
+                Only owners and admins can change workspace details.
+              </p>
+              <button
+                class="btn btn--primary btn--md"
+                type="submit"
+                id="ws-save"
+              >
+                Save changes
+              </button>
+            </form>
+          </section>
+
+          <!-- Notifications -->
+          <section
+            class="panel settings-card"
+            role="tabpanel"
+            id="panel-notifications"
+            aria-labelledby="tab-notifications"
+            hidden
+          >
+            <div class="settings-card__head">
+              <span class="avatar avatar--lg" data-me-avatar>·</span>
+              <div>
+                <h2>Notifications</h2>
+                <p>Customize the way this workspace supports your work.</p>
+              </div>
+            </div>
+            <form class="settings-form" id="prefs-form">
+              <label class="setting-row"
+                ><span>Email notifications</span
+                ><span class="switch"
+                  ><input
+                    type="checkbox"
+                    role="switch"
+                    name="emailNotifications"
+                    checked /><span class="switch__track"></span></span
+              ></label>
+              <label class="setting-row"
+                ><span>In-app notifications</span
+                ><span class="switch"
+                  ><input
+                    type="checkbox"
+                    role="switch"
+                    name="inAppNotifications"
+                    checked /><span class="switch__track"></span></span
+              ></label>
+              <label class="setting-row"
+                ><span>Project activity</span
+                ><span class="switch"
+                  ><input
+                    type="checkbox"
+                    role="switch"
+                    name="projectActivity"
+                    checked /><span class="switch__track"></span></span
+              ></label>
+              <label class="setting-row"
+                ><span>Weekly digest</span
+                ><span class="switch"
+                  ><input
+                    type="checkbox"
+                    role="switch"
+                    name="weeklyDigest" /><span
+                    class="switch__track"
+                  ></span></span
+              ></label>
+              <button class="btn btn--primary btn--md" type="submit">
+                Save changes
+              </button>
+            </form>
+          </section>
+
+          <!-- Security -->
+          <section
+            class="panel settings-card"
+            role="tabpanel"
+            id="panel-security"
+            aria-labelledby="tab-security"
+            hidden
+          >
+            <div class="settings-card__head">
+              <span class="avatar avatar--lg" data-me-avatar>·</span>
+              <div>
+                <h2>Security</h2>
+                <p>Customize the way this workspace supports your work.</p>
+              </div>
+            </div>
+            <div class="settings-form">
+              <label class="setting-row">
+                <span
+                  >Two-factor authentication<small
+                    >Coming soon—not available on your plan yet.</small
+                  ></span
+                >
+                <span class="switch"
+                  ><input type="checkbox" role="switch" disabled /><span
+                    class="switch__track"
+                  ></span
+                ></span>
+              </label>
+              <button class="row-action" type="button" id="signout-all">
+                Sign out of all devices
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use href="#i-log-out"></use>
+                </svg>
+              </button>
+              <button
+                class="row-action row-action--danger"
+                type="button"
+                id="delete-ws"
+              >
+                Delete workspace
+              </button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <dialog class="modal" id="delete-modal" aria-labelledby="delete-title">
+      <div class="modal__head">
+        <h2 class="modal__title" id="delete-title">Delete this workspace?</h2>
+        <button
+          class="modal__close"
+          type="button"
+          data-close
+          aria-label="Close"
+        >
+          <svg class="icon" aria-hidden="true" focusable="false">
+            <use href="#i-x"></use>
+          </svg>
+        </button>
+      </div>
+      <form id="delete-form" novalidate>
+        <p class="modal__text">
+          This permanently removes the workspace for everyone. This can’t be
+          undone. Type <strong id="delete-name"></strong> to confirm.
+        </p>
+        <div class="form-alert" role="alert" hidden>
+          <svg class="icon" aria-hidden="true" focusable="false">
+            <use href="#i-alert-circle"></use></svg
+          ><span></span>
+        </div>
+        <div class="field">
+          <label class="field__label" for="delete-confirm"
+            >Workspace name</label
+          >
+          <input
+            class="field__input"
+            id="delete-confirm"
+            type="text"
+            autocomplete="off"
+          />
+        </div>
+        <div class="modal__actions" style="margin-top: 0">
+          <button class="btn btn--outline btn--md" type="button" data-close>
+            Cancel
+          </button>
+          <button
+            class="btn btn--danger btn--md"
+            type="submit"
+            id="delete-submit"
+            disabled
+          >
+            Delete workspace
+          </button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>
