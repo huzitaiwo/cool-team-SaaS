@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Files — CoolTeam</title>
+    <meta name="robots" content="noindex" />
+
+    <link
+      rel="shortcut icon"
+      href="assets/icons/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/forms.css" />
+    <link rel="stylesheet" href="css/app-shell.css" />
+    <link rel="stylesheet" href="css/app-components.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <script src="js/components.js" defer></script>
+    <script type="module" src="js/files.js"></script>
+  </head>
+  <body class="app-page" data-page="files">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="app" id="app">
+      <div data-app="sidebar"></div>
+      <div class="app__main">
+        <div
+          data-app="topbar"
+          data-eyebrow="Workspace"
+          data-title="Files"
+        ></div>
+        <main class="app__content" id="main">
+          <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+
+          <div class="page-intro">
+            <p class="page-intro__text">
+              A tidy home for the source files and the work around them.
+            </p>
+            <button
+              class="btn btn--primary btn--md"
+              type="button"
+              id="upload-btn"
+            >
+              <svg class="icon" aria-hidden="true" focusable="false">
+                <use href="#i-cloud-upload"></use></svg
+              >Upload file
+            </button>
+            <input type="file" id="file-input" multiple hidden />
+          </div>
+
+          <div class="toolbar">
+            <div class="searchbar">
+              <svg class="icon" aria-hidden="true" focusable="false">
+                <use href="#i-search"></use>
+              </svg>
+              <input
+                id="search"
+                type="search"
+                placeholder="Search files"
+                aria-label="Search files"
+                autocomplete="off"
+              />
+            </div>
+            <div class="view-toggle" role="group" aria-label="View">
+              <button
+                type="button"
+                data-view="grid"
+                aria-pressed="true"
+                aria-label="Grid view"
+              >
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use href="#i-layout-grid"></use>
+                </svg>
+              </button>
+              <button
+                type="button"
+                data-view="list"
+                aria-pressed="false"
+                aria-label="List view"
+              >
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use href="#i-list"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <section id="files-body" aria-label="Files"></section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
