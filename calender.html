@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Calendar — CoolTeam</title>
+    <meta name="robots" content="noindex" />
+
+    <link
+      rel="shortcut icon"
+      href="assets/icons/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/forms.css" />
+    <link rel="stylesheet" href="css/app-shell.css" />
+    <link rel="stylesheet" href="css/app-components.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <script src="js/components.js" defer></script>
+    <script type="module" src="js/calendar.js"></script>
+  </head>
+  <body class="app-page" data-page="calendar">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="app" id="app">
+      <div data-app="sidebar"></div>
+      <div class="app__main">
+        <div
+          data-app="topbar"
+          data-eyebrow="Workspace"
+          data-title="Calendar"
+        ></div>
+        <main class="app__content" id="main">
+          <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+
+          <div class="page-intro">
+            <p class="page-intro__text">
+              Deadlines, reviews, and the room around them.
+            </p>
+            <div class="page-intro__actions">
+              <div
+                class="segmented"
+                role="radiogroup"
+                aria-label="Calendar view"
+              >
+                <label
+                  ><input type="radio" name="view" value="month" checked /><span
+                    >Month</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="view" value="agenda" /><span
+                    >Agenda</span
+                  ></label
+                >
+              </div>
+              <button
+                class="btn btn--primary btn--md"
+                type="button"
+                id="event-open"
+              >
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use href="#i-plus"></use></svg
+                >Event
+              </button>
+            </div>
+          </div>
+
+          <section class="panel cal" aria-labelledby="cal-title">
+            <div class="cal__head">
+              <h2 class="cal__title" id="cal-title"></h2>
+              <div class="cal__nav">
+                <button
+                  class="icon-btn"
+                  type="button"
+                  id="prev"
+                  aria-label="Previous month"
+                >
+                  <svg class="icon" aria-hidden="true" focusable="false">
+                    <use href="#i-chevron-left"></use>
+                  </svg>
+                </button>
+                <button
+                  class="icon-btn"
+                  type="button"
+                  id="next"
+                  aria-label="Next month"
+                >
+                  <svg class="icon" aria-hidden="true" focusable="false">
+                    <use href="#i-chevron-right"></use>
+                  </svg>
+                </button>
+                <button class="cal__today btn-text" type="button" id="today">
+                  Today
+                </button>
+              </div>
+            </div>
+            <div id="cal-body"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <dialog class="modal" id="event-modal" aria-labelledby="event-title">
+      <div class="modal__head">
+        <h2 class="modal__title" id="event-title">Add an event</h2>
+        <button
+          class="modal__close"
+          type="button"
+          data-close
+          aria-label="Close"
+        >
+          <svg class="icon" aria-hidden="true" focusable="false">
+            <use href="#i-x"></use>
+          </svg>
+        </button>
+      </div>
+      <form id="event-form" novalidate>
+        <div class="field">
+          <label class="field__label" for="event-name">Title</label>
+          <input
+            class="field__input"
+            id="event-name"
+            type="text"
+            maxlength="60"
+            placeholder="e.g. Client sync"
+            autocomplete="off"
+            aria-describedby="event-name-error"
+          />
+          <p class="field__error" id="event-name-error" hidden>
+            <svg class="icon" aria-hidden="true" focusable="false">
+              <use href="#i-alert-circle"></use></svg
+            ><span></span>
+          </p>
+        </div>
+        <div class="field">
+          <label class="field__label" for="event-date">Date</label>
+          <input class="field__input" id="event-date" type="date" required />
+        </div>
+        <div class="field">
+          <label class="field__label" for="event-type">Type</label>
+          <select class="field__input" id="event-type">
+            <option value="review">Review</option>
+            <option value="meeting">Meeting</option>
+            <option value="deadline">Deadline</option>
+          </select>
+        </div>
+        <button class="btn btn--primary btn--block btn--md" type="submit">
+          Add event
+        </button>
+      </form>
+    </dialog>
+  </body>
+</html>
