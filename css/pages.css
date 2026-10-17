@@ -684,3 +684,205 @@ button.cal__day:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   Billing
+   ========================================================================== */
+.billing-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 1.25rem;
+  align-items: stretch;
+}
+.plan-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem;
+  border-radius: 1.3rem;
+  background: var(--color-navy-900);
+  color: #fff;
+  box-shadow: 0 24px 50px rgba(28, 18, 72, 0.18);
+}
+.plan-card__eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-teal-400);
+}
+.plan-card__name {
+  margin-top: 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+.plan-card__meta {
+  margin-top: 0.7rem;
+  padding-right: 2.5rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.68);
+}
+.plan-card__icon {
+  position: absolute;
+  top: 5.6rem;
+  right: 1.75rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  color: var(--color-teal-400);
+}
+.plan-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.6rem;
+}
+.plan-card__select {
+  height: 2.75rem;
+  min-width: 8.5rem;
+  padding: 0 0.9rem;
+  border: 0;
+  border-radius: 0.8rem;
+  background: #fff;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--color-brand-700);
+  cursor: pointer;
+}
+.plan-card__select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.plan-card .btn--outline-light {
+  min-height: 2.75rem;
+  border-radius: 0.8rem;
+  font-size: 0.95rem;
+}
+.plan-card .btn--outline-light:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+.plan-card__foot {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+}
+.plan-card__foot strong {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+}
+
+.usage-list {
+  display: grid;
+  gap: 1.15rem;
+}
+.usage__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.45rem;
+  font-size: 0.8rem;
+}
+.usage__row strong {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+.usage__row span {
+  color: var(--color-muted);
+}
+.usage__row em {
+  font-style: normal;
+  font-weight: 600;
+  color: #b45309;
+}
+.usage__row .is-over {
+  color: #b4232f;
+}
+.usage .progress {
+  height: 0.4rem;
+}
+
+.invoices {
+  padding: 0;
+  overflow: hidden;
+}
+.invoices__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem 1.6rem 1.2rem;
+}
+.invoice {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.1rem 1.6rem;
+  border-top: 1px solid var(--color-border);
+  transition: background-color var(--dur) ease;
+}
+.invoice:hover {
+  background: #fbfaff;
+}
+.invoice strong {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-ink);
+}
+.invoice small {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.7rem;
+  color: var(--color-muted);
+}
+.invoice__amount {
+  min-width: 4.5rem;
+  text-align: right;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+.billing-actions {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-brand-600);
+  transition: color var(--dur-fast) ease;
+}
+.billing-actions:hover {
+  color: var(--color-brand-700);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.billing-actions:disabled {
+  color: #b3b9cf;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+@media (max-width: 1100px) {
+  .billing-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .plan-card__icon {
+    top: 1.75rem;
+  }
+  .invoice {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.6rem 1rem;
+    padding: 1rem 1.25rem;
+  }
+  .invoice__amount {
+    text-align: left;
+  }
+  .invoices__head {
+    padding: 1.25rem;
+  }
+}
