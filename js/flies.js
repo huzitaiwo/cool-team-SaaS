@@ -78,7 +78,7 @@ function cardHTML(f) {
     <div class="file-card__thumb" style="--g:${gradient}"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-file-image"></use></svg></div>
     <div class="file-card__body">
       <div>
-        <h3 class="file-card__name">${esc(f.name)}</h3>
+                <h3 class="file-card__name"><a class="file-card__link" href="review.html?id=${f.id === 1 ? "northstar-motion" : `file-${String(f.id).replace(".", "-")}`}&name=${encodeURIComponent(f.name)}">${esc(f.name)}</a></h3>
         <p class="file-card__meta">${f.uploading ? `Uploading… ${f.progress}%` : `${label} · ${esc(f.size)}`}</p>
         ${f.uploading ? `<div class="progress" role="progressbar" aria-label="Uploading ${esc(f.name)}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${f.progress}"><span class="progress__bar" style="--value:${f.progress}%;animation:none"></span></div>` : ""}
       </div>

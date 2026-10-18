@@ -886,3 +886,23 @@ button.cal__day:hover {
     padding: 1.25rem;
   }
 }
+
+.file-card {
+  position: relative;
+}
+.file-card__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+.file-card__link:focus-visible {
+  outline: none;
+}
+.file-card:has(.file-card__link:focus-visible) {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+.file-card.is-uploading .file-card__link {
+  pointer-events: none;
+}

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Creative review — CoolTeam</title>
+    <meta name="robots" content="noindex" />
+
+    <link
+      rel="shortcut icon"
+      href="assets/icons/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/forms.css" />
+    <link rel="stylesheet" href="css/app-shell.css" />
+    <link rel="stylesheet" href="css/app-components.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <link rel="stylesheet" href="css/review.css" />
+    <script src="js/components.js" defer></script>
+    <script type="module" src="js/review.js"></script>
+  </head>
+  <body class="app-page" data-page="files">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="app" id="app">
+      <div data-app="sidebar"></div>
+      <div class="app__main">
+        <div
+          data-app="topbar"
+          data-eyebrow="Creative review"
+          data-title="Review"
+        ></div>
+
+        <main class="app__content" id="main">
+          <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+          <p class="sr-only" id="announce" aria-live="assertive"></p>
+
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <a href="files.html">Files</a>
+            <svg class="icon" aria-hidden="true" focusable="false">
+              <use href="#i-chevron-right"></use>
+            </svg>
+            <span id="crumb" aria-current="page">Loading…</span>
+          </nav>
+
+          <div class="page-intro" style="justify-content: flex-end">
+            <div
+              class="segmented"
+              role="radiogroup"
+              aria-label="Preview page state"
+            >
+              <span class="segmented__label" aria-hidden="true">State</span>
+              <label
+                ><input type="radio" name="mode" value="live" checked /><span
+                  >Live</span
+                ></label
+              >
+              <label
+                ><input type="radio" name="mode" value="loading" /><span
+                  >Loading</span
+                ></label
+              >
+              <label
+                ><input type="radio" name="mode" value="error" /><span
+                  >Error</span
+                ></label
+              >
+              <label
+                ><input type="radio" name="mode" value="viewonly" /><span
+                  >View-only</span
+                ></label
+              >
+            </div>
+          </div>
+
+          <div id="rv-head" class="rv-head"></div>
+          <div id="rv-banner"></div>
+          <div id="rv-flow"></div>
+
+          <div class="review-grid">
+            <div id="rv-stage"></div>
+            <div class="side-stack" id="rv-side"></div>
+          </div>
+          <input
+            type="file"
+            id="rv-file"
+            accept="image/*,video/*,.pdf,.fig,.zip"
+            hidden
+          />
+        </main>
+      </div>
+    </div>
+
+    <dialog class="modal" id="changes-modal" aria-labelledby="changes-title">
+      <div class="modal__head">
+        <h2 class="modal__title" id="changes-title">Request changes</h2>
+        <button
+          class="modal__close"
+          type="button"
+          data-close
+          aria-label="Close"
+        >
+          <svg class="icon" aria-hidden="true" focusable="false">
+            <use href="#i-x"></use>
+          </svg>
+        </button>
+      </div>
+      <form id="changes-form" novalidate>
+        <p class="modal__text">
+          Tell the team what needs to change. They’ll be notified and can upload
+          a new version.
+        </p>
+        <div class="field">
+          <label class="field__label" for="changes-note"
+            >What needs to change?</label
+          >
+          <textarea
+            class="field__input"
+            id="changes-note"
+            rows="4"
+            maxlength="800"
+            style="height: auto; padding-top: 0.75rem"
+            aria-describedby="changes-note-error"
+          ></textarea>
+          <p class="field__error" id="changes-note-error" hidden>
+            <svg class="icon" aria-hidden="true" focusable="false">
+              <use href="#i-alert-circle"></use></svg
+            ><span></span>
+          </p>
+        </div>
+        <div class="modal__actions" style="margin-top: 0.25rem">
+          <button class="btn btn--outline btn--md" type="button" data-close>
+            Cancel
+          </button>
+          <button class="btn btn--primary btn--md" type="submit">
+            Request changes
+          </button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>
